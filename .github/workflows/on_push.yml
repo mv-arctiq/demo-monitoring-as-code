@@ -19,7 +19,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: git config list --show-origin
+      - run: git config --list --show-origin
         shell: bash
 
       - run: cat ~/.gitconfig
