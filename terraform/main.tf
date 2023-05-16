@@ -1,6 +1,6 @@
 module "management_zone_v2_test-demo-tf" {
-  source      = "git::git@github.com:SolalVall/terraform-dynatrace-modules.git//management-zone?ref=main"
   name        = "test-demo"
+  source      = "git::ssh://git@github.com/SolalVall/terraform-dynatrace-modules.git//management-zone?ref=main"
   description = "This terraform MZ is automatically created using Terraform"
   entity_selector_rules = [
     { selector = "type(\"SERVICE\"),tag(\"test1\")" },
