@@ -14,8 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure ssh creds
-        run: git config --global url."https://${GH_TOKEN}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "git@github.com:SolalVall/terraform-dynatrace-modules.git"
-        shell: bash
+        command: git config --global url."https://${GH_TOKEN}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.com:SolalVall/terraform-dynatrace-modules.git"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
