@@ -7,22 +7,16 @@ on:
       - '**.tf'
 
 jobs:
-  test-action:
+  generate-plan:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch repository
         uses: actions/checkout@v3
 
       - name: Configure ssh creds
-        run: git config --global url."https://${GH_TOKEN}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.com/SolalVall/terraform-dynatrace-modules.git"
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - run: git config --list --show-origin
-        shell: bash
-
-      - run: cat ~/.gitconfig
-        shell: bash
+        run: git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.com/SolalVall/terraform-dynatrace-modules.git"
+          #  env:
+          #GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Run Terraform
         uses: SolalVall/action-terraform@develop
