@@ -15,7 +15,7 @@ runs:
   using: "composite"
   steps:
     - name: Configure terraform modules accessibility
-      run: git config --global url."https://${{ inputs.GH_TOKEN }}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.co      m/SolalVall/terraform-dynatrace-modules.git"
+      run: git config --global url."https://${{ inputs.github }}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.co      m/SolalVall/terraform-dynatrace-modules.git"
       shell: bash
 
     - name: Configure gcloud creds
