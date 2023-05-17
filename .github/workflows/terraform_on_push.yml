@@ -24,7 +24,9 @@ jobs:
           github: ${{ secrets.GH_TOKEN }}
           gcloud: ${{ secrets.GCS_JSON }}
 
-      - name: Run Terraform
+      - run: cat ~/.gitconfig
+
+      - name: Terraform plan
         uses: SolalVall/action-terraform@main
         with:
           directory: terraform/${{ matrix.environment }}
@@ -54,7 +56,7 @@ jobs:
           github: ${{ secrets.GH_TOKEN }}
           gcloud: ${{ secrets.GCS_JSON }}
 
-      - name: Run Terraform
+      - name: Terraform apply
         uses: SolalVall/action-terraform@main
         with:
           directory: terraform/${{ matrix.environment }}
