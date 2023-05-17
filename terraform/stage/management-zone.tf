@@ -1,16 +1,10 @@
-module "management_zone_v2_test-demo-tf" {
-  name        = "test-demo"
+module "management-zone" {
+  name        = "tf-my-team"
   source      = "git::git@github.com:SolalVall/terraform-dynatrace-modules.git//management-zone?ref=main"
   description = "This terraform MZ is automatically created using Terraform"
   entity_selector_rules = [
     { selector = "type(\"SERVICE\"),tag(\"test1\")" },
     { selector = "type(\"SERVICE\"),tag(\"test2\")" },
-    { selector = "type(\"SERVICE\"),tag(\"test3\")" },
-    { selector = "type(\"SERVICE\"),tag(\"test4\")" },
-    {
-      enabled  = false
-      selector = "type(\"SERVICE\"),tag(\"test4b\")"
-    }
   ]
   dimension_rules = [
     {

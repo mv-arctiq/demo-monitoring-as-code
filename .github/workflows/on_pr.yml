@@ -8,7 +8,7 @@ on:
       - '**.tf'
 
 jobs:
-  test-action:
+  terraform-steps:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch repository
