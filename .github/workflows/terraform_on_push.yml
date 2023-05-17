@@ -22,7 +22,7 @@ jobs:
         uses: ./.github/actions/setup-creds
         with:
           github: ${{ secrets.GH_TOKEN }}
-          gcloud: '${{ secrets.GCS_JSON }}'
+          gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Run Terraform
         uses: SolalVall/action-terraform@main
@@ -52,7 +52,7 @@ jobs:
         uses: ./.github/actions/setup-creds
         with:
           github: ${{ secrets.GH_TOKEN }}
-          gcloud: '${{ secrets.GCS_JSON }}'
+          gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Run Terraform
         uses: SolalVall/action-terraform@main

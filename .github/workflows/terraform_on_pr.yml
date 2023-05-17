@@ -27,7 +27,7 @@ jobs:
         uses: ./.github/actions/setup-creds
         with:
           github: ${{ secrets.GH_TOKEN }}
-          gcloud: '${{ secrets.GCS_JSON }}'
+          gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Test action
         uses: SolalVall/action-terraform@v0.0.4
