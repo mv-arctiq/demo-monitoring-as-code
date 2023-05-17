@@ -1,0 +1,23 @@
+name: Terraform creds
+description: Setup all the required credentials in order for terraform to work
+
+inputs:
+  github:
+    description: "Github token used clone private terraform modules"
+    required: yes
+    type: string
+  gcloud:
+    description: "Gcloud JSON credentials file used to access GCS bucket"
+    required: yes
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Configure terraform modules accessibility
+      run: git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/SolalVall/terraform-dynatrace-modules.git".insteadOf "ssh://git@github.co      m/SolalVall/terraform-dynatrace-modules.git"
+
+    - name: Configure gcloud creds
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: '${{ inputs.gcloud }}'

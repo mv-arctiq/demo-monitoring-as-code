@@ -1,0 +1,41 @@
+name: 'Terraform: verifications'
+run-name: "Verifying Terraform code [PR-${{github.event.pull_request.number}}]" 
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+    paths:
+      - '**.tf'
+
+jobs:
+  terraform-steps:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: ['stage', 'production']
+    environment:
+      name: ${{ matrix.environment }}
+    env:
+      DYNATRACE_ENV_URL: ${{ secrets.DYNATRACE_ENV_URL }}
+      DYNATRACE_API_TOKEN: ${{ secrets.DYNATRACE_API_TOKEN }}
+    steps:
+      - name: Fetch repository
+        uses: actions/checkout@v3
+
+      - name: Configure required access
+        uses: ./.github/actions/setup-creds
+        with:
+          github: ${{ secrets.GH_TOKEN }}
+          gcloud: '${{ secrets.GCS_JSON }}'
+
+      - name: Test action
+        uses: SolalVall/action-terraform@v0.0.4
+        with:
+          directory: terraform
+          tf_version: 1.4.6
+          tf_init: true
+          tf_lint: true
+          tf_plan: true
+          tf_plan_artifact: false
+          exec_in_parallel: true

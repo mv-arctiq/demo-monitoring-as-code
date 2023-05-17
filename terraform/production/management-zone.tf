@@ -1,5 +1,5 @@
 module "management-zone" {
-  name        = "tf-my-team-stage"
+  name        = "tf-my-team-prod"
   source      = "git::git@github.com:SolalVall/terraform-dynatrace-modules.git//management-zone?ref=main"
   description = "This terraform MZ is automatically created using Terraform"
   entity_selector_rules = [

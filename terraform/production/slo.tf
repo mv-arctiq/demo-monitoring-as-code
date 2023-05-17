@@ -3,7 +3,7 @@ module "slo" {
   team_name = "my-team"
   slos = {
     "slo1" = {
-      name             = "My Web App slo user experience (stage)"
+      name             = "My Web App slo user experience (prd)"
       description      = "This is a slo created with terraform for measuring application user experience for app with tag test"
       warning          = 99.90
       target           = 98.50
