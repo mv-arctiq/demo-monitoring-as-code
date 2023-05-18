@@ -15,7 +15,7 @@ module "slo" {
     "slo2" = {
       name             = "My Web App slo user experience 2 (stage)"
       description      = "This is a slo created with terraform for measuring application user experience for app with tag test."
-      warning   = 99.40
+      warning          = 99.40
       target           = 98.50
       timeframe        = "-1m"
       predefine_metric = "application_user_experience"
