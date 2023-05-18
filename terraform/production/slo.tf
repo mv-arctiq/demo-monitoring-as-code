@@ -12,5 +12,15 @@ module "slo" {
       filter_type      = "APPLICATION"
       filter_name      = "My Web Application"
     }
+    "slo2" = {
+      name             = "My Web App slo user experience (prd)"
+      description      = "This is a slo created with terraform for measuring application user experience for app with tag test"
+      waning          = 99.90
+      target           = 98.50
+      timeframe        = "-1m"
+      predefine_metric = "application_user_experience"
+      filter_type      = "APPLICATION"
+      filter_name      = "My Web Application"
+    }
   }
 }
