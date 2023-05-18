@@ -25,8 +25,6 @@ jobs:
           github: ${{ secrets.GH_TOKEN }}
           gcloud: ${{ secrets.GCS_JSON }}
 
-      - run: cat ~/.gitconfig
-
       - name: Terraform plan
         uses: SolalVall/action-terraform@main
         with:
