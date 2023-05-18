@@ -4,13 +4,13 @@ module "slo" {
   slos = {
     "slo1" = {
       name             = "My Web App slo user experience (stage)"
-      description      = "This is a slo created with terraform for measuring application user experience for app with tag test"
+      description      = "This is a slo created with terraform for measuring application user experience for app with tag test."
       warning          = 99.90
       target           = 98.50
       timeframe        = "-1m"
       predefine_metric = "application_user_experience"
       filter_type      = "APPLICATION"
-      filter_name      = "My Web Application"
+      filter_entity    = "My Web Application"
     }
   }
 }
