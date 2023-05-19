@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        environment: ['stage']
+        environment: ['stage', 'production']
     steps:
       - name: Fetch repository
         uses: actions/checkout@v3
