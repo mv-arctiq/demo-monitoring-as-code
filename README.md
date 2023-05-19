@@ -1,1 +1,1 @@
-# demo-terraform-dynatrace
+# demo-monitoring-as-code
