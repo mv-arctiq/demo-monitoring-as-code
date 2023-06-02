@@ -26,7 +26,7 @@ jobs:
           gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Test action
-        uses: SolalVall/action-terraform@main
+        uses: ArctiqTeam/action-terraform@main
         with:
           artifact_workflow: false
           directory: terraform/${{ matrix.environment }}
