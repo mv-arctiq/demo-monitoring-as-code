@@ -24,7 +24,7 @@ jobs:
           gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Terraform plan
-        uses: ArctiqTeam/action-terraform@main
+        uses: mv-arctiq/action-terraform@main
         with:
           directory: terraform/${{ matrix.environment }}
           tf_version: 1.4.6
@@ -55,7 +55,7 @@ jobs:
           gcloud: ${{ secrets.GCS_JSON }}
 
       - name: Terraform apply
-        uses: ArctiqTeam/action-terraform@main
+        uses: mv-arctiq/action-terraform@main
         with:
           directory: terraform/${{ matrix.environment }}
           tf_version: 1.4.6
